@@ -1,11 +1,11 @@
 /* ===== Brand theme (from the Little Lemon style guide) ===== */
 :root {
-  --ll-green: #495e57;   /* primary */
-  --ll-yellow: #f4ce14;  /* primary */
-  --ll-salmon: #ee9972;  /* secondary */
-  --ll-peach: #fbdabb;   /* secondary */
-  --ll-light: #edefee;   /* highlight */
-  --ll-dark: #333333;    /* highlight / text */
+  --ll-green: #495e57;
+  --ll-yellow: #f4ce14;
+  --ll-salmon: #ee9972;
+  --ll-peach: #fbdabb;
+  --ll-light: #edefee;
+  --ll-dark: #333333;
 }
 
 /* ===== Base ===== */
@@ -80,21 +80,223 @@ nav a:hover {
 img {
   max-width: 100%;
   height: auto;
-  border-radius: 16px;   /* content images get rounded corners */
+  border-radius: 16px;
 }
 
 header img {
-  border-radius: 0;      /* keep the logo square */
+  border-radius: 0;
   max-height: 60px;
   width: auto;
 }
 
-/* ===== Main ===== */
-main {
+/* ===== Buttons ===== */
+.button {
+  display: inline-block;
+  background: var(--ll-yellow);
+  color: var(--ll-dark);
+  font-family: "Karla", system-ui, Arial, sans-serif;
+  font-weight: 700;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #e6c00f;
+}
+
+/* ===== Hero / CallToAction ===== */
+.cta {
+  background: var(--ll-green);
+  padding: 40px 24px 64px;
+}
+
+.cta-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 32px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  text-align: left;
+}
+
+.cta-text {
+  max-width: 55%;
+}
+
+.cta h1 { color: var(--ll-yellow); }
+.cta h2 { color: var(--ll-light); margin-top: -8px; }
+.cta p { color: var(--ll-light); margin: 16px 0 24px; }
+
+.cta-image {
+  width: 320px;
+  max-width: 40%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* ===== Specials ===== */
+.specials {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  text-align: left;
+}
+
+.specials-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.specials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.special-card {
+  background: var(--ll-light);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.special-card img {
+  border-radius: 0;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.special-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.special-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  color: var(--ll-salmon);
+  font-weight: 700;
+}
+
+.special-content p {
+  font-size: 1rem;
+}
+
+.special-link {
+  color: var(--ll-dark);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ===== Testimonials / CustomersSay ===== */
+.customers {
+  background: var(--ll-green);
+  padding: 48px 24px;
   text-align: center;
+}
+
+.customers h2 {
+  color: var(--ll-light);
+  margin-bottom: 32px;
+}
+
+.reviews-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.review-card {
+  background: var(--ll-light);
+  border-radius: 16px;
+  padding: 20px;
+  text-align: left;
+}
+
+.rating {
+  color: var(--ll-yellow);
+  font-size: 1.25rem;
+}
+
+.review-person {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 8px 0;
+}
+
+.review-person img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.review-card p {
+  font-size: 1rem;
+}
+
+/* ===== Chicago / About ===== */
+.chicago {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  text-align: left;
+}
+
+.chicago-text {
+  flex: 1;
+}
+
+.chicago h2 {
+  color: var(--ll-green);
+}
+
+.chicago-images {
+  display: flex;
+  gap: 16px;
+}
+
+.chicago-images img {
+  width: 160px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* ===== Booking placeholder ===== */
+.booking {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 64px 24px;
+  text-align: center;
+}
+
+/* ===== Main ===== */
+main {
+  min-height: 50vh;
 }
 
 /* ===== Footer ===== */
@@ -108,9 +310,7 @@ footer {
   padding: 24px 16px;
 }
 
-footer p {
-  color: #ffffff;
-}
+footer p { color: #ffffff; }
 
 footer nav {
   display: flex;
@@ -119,22 +319,23 @@ footer nav {
   gap: 16px;
 }
 
-footer nav a {
-  color: #ffffff;
+footer nav a { color: #ffffff; }
+
+/* ===== Responsive: tablet and below ===== */
+@media (max-width: 800px) {
+  .cta-inner { flex-direction: column; text-align: center; }
+  .cta-text { max-width: 100%; }
+  .cta-image { width: 100%; max-width: 100%; height: 260px; }
+  .specials-grid { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .chicago { flex-direction: column; text-align: center; }
+  .chicago-images { justify-content: center; }
 }
 
-/* ===== Responsive (mobile) ===== */
+/* ===== Responsive: mobile ===== */
 @media (max-width: 600px) {
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
-
-  header img {
-    max-height: 48px;
-  }
-
+  nav ul { flex-direction: column; align-items: center; gap: 12px; }
+  header img { max-height: 48px; }
   h1 { font-size: 2.5rem; }
   h2 { font-size: 2rem; }
   h3 { font-size: 1.6rem; }
