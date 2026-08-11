@@ -1,3 +1,13 @@
+/* ===== Brand theme (from the Little Lemon style guide) ===== */
+:root {
+  --ll-green: #495e57;   /* primary */
+  --ll-yellow: #f4ce14;  /* primary */
+  --ll-salmon: #ee9972;  /* secondary */
+  --ll-peach: #fbdabb;   /* secondary */
+  --ll-light: #edefee;   /* highlight */
+  --ll-dark: #333333;    /* highlight / text */
+}
+
 /* ===== Base ===== */
 * {
   box-sizing: border-box;
@@ -6,9 +16,35 @@
 }
 
 body {
-  font-family: system-ui, "Segoe UI", Arial, sans-serif;
-  color: #333333;
+  font-family: "Karla", system-ui, Arial, sans-serif;
+  color: var(--ll-dark);
   line-height: 1.6;
+}
+
+/* ===== Headings (Markazi Text) ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Markazi Text", serif;
+  color: var(--ll-dark);
+  line-height: 1.1;
+  font-weight: 500;
+}
+
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 2rem; }
+h4 { font-size: 1.6rem; }
+h5 { font-size: 1.3rem; }
+h6 { font-size: 1.1rem; }
+
+/* ===== Paragraphs & spans (Karla) ===== */
+p {
+  font-family: "Karla", system-ui, Arial, sans-serif;
+  font-size: 1.125rem;
+  color: var(--ll-dark);
+}
+
+span {
+  font-family: "Karla", system-ui, Arial, sans-serif;
 }
 
 /* ===== Header (logo) ===== */
@@ -19,12 +55,7 @@ header {
   padding: 16px;
 }
 
-header img {
-  max-height: 60px;
-  width: auto;
-}
-
-/* ===== Navigation (horizontal links) ===== */
+/* ===== Navigation ===== */
 nav ul {
   list-style: none;
   display: flex;
@@ -35,16 +66,30 @@ nav ul {
 }
 
 nav a {
+  font-family: "Karla", system-ui, Arial, sans-serif;
   text-decoration: none;
-  color: #495e57;
-  font-weight: 600;
+  color: var(--ll-green);
+  font-weight: 700;
 }
 
 nav a:hover {
-  color: #f4ce14;
+  color: var(--ll-yellow);
 }
 
-/* ===== Main content ===== */
+/* ===== Images ===== */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;   /* content images get rounded corners */
+}
+
+header img {
+  border-radius: 0;      /* keep the logo square */
+  max-height: 60px;
+  width: auto;
+}
+
+/* ===== Main ===== */
 main {
   max-width: 1200px;
   margin: 0 auto;
@@ -52,15 +97,19 @@ main {
   text-align: center;
 }
 
-/* ===== Footer (stacked, centered) ===== */
+/* ===== Footer ===== */
 footer {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  background: #495e57;
+  background: var(--ll-green);
   color: #ffffff;
   padding: 24px 16px;
+}
+
+footer p {
+  color: #ffffff;
 }
 
 footer nav {
@@ -85,4 +134,8 @@ footer nav a {
   header img {
     max-height: 48px;
   }
+
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.6rem; }
 }
