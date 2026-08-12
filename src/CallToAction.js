@@ -9,10 +9,10 @@ function CallToAction() {
           <h1>Little Lemon</h1>
           <h2>Chicago</h2>
           <p>
-            We are a family-owned Mediterranean restaurant, focused on
+            We are a family owned Mediterranean restaurant, focused on
             traditional recipes served with a modern twist.
           </p>
-          <Link to="/booking" className="button">Reserve a Table</Link>
+          <Link to="/booking" className="button">Reserve a table</Link>
         </div>
         <img
           className="cta-image"

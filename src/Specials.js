@@ -1,24 +1,25 @@
-import { Link } from "react-router-dom";
 import greekSalad from "./images/GreekSalad1.jpg";
 import bruschetta from "./images/Bruscetta1.jpg";
 import grilledFish from "./images/FishDish1.jpg";
 
-const specials = [
+const categories = ["Lunch", "Mains", "Desserts", "A La Carte", "Specials"];
+
+const menuItems = [
   {
     id: 1,
     title: "Greek Salad",
     price: "$12.99",
     image: greekSalad,
     description:
-      "The famous Greek salad of crispy lettuce, peppers, olives and our Chicago-style feta cheese, garnished with garlic and rosemary croutons.",
+      "The famous greek salad of crispy lettuce, peppers, olives and our Chicago-style feta cheese, garnished with garlic and rosemary croutons.",
   },
   {
     id: 2,
-    title: "Bruschetta",
-    price: "$5.99",
+    title: "Brushetta",
+    price: "$7.99",
     image: bruschetta,
     description:
-      "Our Bruschetta is made from grilled bread smeared with garlic and seasoned with salt and olive oil.",
+      "Our Brushetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.",
   },
   {
     id: 3,
@@ -32,27 +33,27 @@ const specials = [
 
 function Specials() {
   return (
-    <section className="specials">
-      <div className="specials-header">
-        <h2>This Week's Specials!</h2>
-        <Link to="/" className="button">Online Menu</Link>
-      </div>
+    <section className="menu-section">
+      <h2 className="menu-title">ORDER FOR DELIVERY!</h2>
 
-      <div className="specials-grid">
-        {specials.map((item) => (
-          <article key={item.id} className="special-card">
-            <img src={item.image} alt={item.title} />
-            <div className="special-content">
-              <div className="special-title">
-                <h3>{item.title}</h3>
-                <span className="price">{item.price}</span>
-              </div>
-              <p>{item.description}</p>
-              <Link to="/" className="special-link">Order a delivery</Link>
-            </div>
-          </article>
+      <div className="category-chips">
+        {categories.map((category) => (
+          <button key={category} className="chip">{category}</button>
         ))}
       </div>
+
+      <ul className="menu-list">
+        {menuItems.map((item) => (
+          <li key={item.id} className="menu-item">
+            <div className="menu-item-text">
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+              <span className="price">{item.price}</span>
+            </div>
+            <img className="menu-item-img" src={item.image} alt={item.title} />
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
