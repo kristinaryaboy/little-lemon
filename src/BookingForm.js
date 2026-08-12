@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function BookingForm({ availableTimes, dispatch }) {
+function BookingForm({ availableTimes, dispatch, submitForm }) {
   // one state variable per form field (controlled component)
   const [date, setDate] = useState("");
   const [time, setTime] = useState("5:00 PM");
@@ -16,11 +16,7 @@ function BookingForm({ availableTimes, dispatch }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const reservation = { date, time, guests, occasion };
-    console.log("Reservation submitted:", reservation);
-    alert(
-      `Table booked for ${guests} guest(s) on ${date} at ${time} (${occasion}).`
-    );
+    submitForm({ date, time, guests, occasion });
   };
 
   return (
