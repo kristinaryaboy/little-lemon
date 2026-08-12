@@ -25,7 +25,9 @@ function CustomersSay() {
       <div className="reviews-grid">
         {reviews.map((r) => (
           <article key={r.id} className="review-card">
-            <p className="rating">{r.rating}</p>
+            <p className="rating" role="img" aria-label="Rated 5 out of 5 stars">
+              {r.rating}
+            </p>
             <div className="review-person">
               <img src={r.image} alt={r.name} />
               <h4>{r.name}</h4>

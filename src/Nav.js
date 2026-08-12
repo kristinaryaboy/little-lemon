@@ -11,7 +11,11 @@ const links = [
 
 function Nav({ isOpen, onNavigate }) {
   return (
-    <nav className={isOpen ? "nav-links open" : "nav-links"}>
+    <nav
+      id="main-nav"
+      aria-label="Main navigation"
+      className={isOpen ? "nav-links open" : "nav-links"}
+    >
       <ul>
         {links.map((link) => (
           <li key={link.label}>

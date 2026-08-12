@@ -3,7 +3,7 @@ function Footer() {
     <footer>
       <p>Little Lemon</p>
       <p>Chicago, IL</p>
-      <nav>
+      <nav aria-label="Footer navigation">
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#menu">Menu</a>
