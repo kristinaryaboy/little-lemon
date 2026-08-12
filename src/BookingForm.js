@@ -1,25 +1,18 @@
 import { useState } from "react";
 
-function BookingForm() {
+function BookingForm({ availableTimes, dispatch }) {
   // one state variable per form field (controlled component)
   const [date, setDate] = useState("");
   const [time, setTime] = useState("5:00 PM");
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState("Birthday");
 
-  // available booking times held in state (will later come from an API)
-  const [availableTimes] = useState([
-    "11:00 AM",
-    "12:00 PM",
-    "1:00 PM",
-    "2:00 PM",
-    "5:00 PM",
-    "6:00 PM",
-    "7:00 PM",
-    "8:00 PM",
-    "9:00 PM",
-    "10:00 PM",
-  ]);
+  // when the date changes, update local state AND dispatch to refresh times
+  const handleDateChange = (e) => {
+    const newDate = e.target.value;
+    setDate(newDate);
+    dispatch({ type: "UPDATE_TIMES", date: newDate });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,7 +30,7 @@ function BookingForm() {
         type="date"
         id="res-date"
         value={date}
-        onChange={(e) => setDate(e.target.value)}
+        onChange={handleDateChange}
       />
 
       <label htmlFor="res-time">Choose time</label>
