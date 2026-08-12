@@ -24,3 +24,18 @@ test("updateTimes returns a non-empty list of times for the selected date", () =
   expect(Array.isArray(result)).toBe(true);
   expect(result.length).toBeGreaterThan(0);
 });
+
+// Validation: submit is disabled until the form is valid (no date chosen)
+test("Submit button is disabled when the form is invalid", () => {
+  render(
+    <BookingForm
+      availableTimes={["5:00 PM"]}
+      dispatch={() => {}}
+      submitForm={() => {}}
+    />
+  );
+  const submitButton = screen.getByRole("button", {
+    name: /make your reservation/i,
+  });
+  expect(submitButton).toBeDisabled();
+});

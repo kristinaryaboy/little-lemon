@@ -368,6 +368,12 @@ img {
   background: #e6c00f;
 }
 
+.booking-form input[type="submit"]:disabled {
+  background: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
 /* ===== Main ===== */
 main {
   min-height: 50vh;
