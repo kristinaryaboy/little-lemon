@@ -1,35 +1,40 @@
+/* global fetchAPI */
 import { useReducer } from "react";
 import { Routes, Route } from "react-router-dom";
 import Homepage from "./Homepage";
 import BookingPage from "./BookingPage";
 
-// Creates the initial list of available booking times
-export const initializeTimes = () => [
-  "11:00 AM",
-  "12:00 PM",
-  "1:00 PM",
-  "2:00 PM",
-  "5:00 PM",
-  "6:00 PM",
-  "7:00 PM",
-  "8:00 PM",
-  "9:00 PM",
-  "10:00 PM",
-];
+// Convert a 24-hour "HH:MM" time from the API into a friendly AM/PM string
+const formatTime = (time24) => {
+  const [hourStr, minute] = time24.split(":");
+  let hour = parseInt(hourStr, 10);
+  const period = hour >= 12 ? "PM" : "AM";
+  hour = hour % 12 || 12;
+  return `${hour}:${minute} ${period}`;
+};
 
-// Reducer: updates available times based on the selected date.
-// For now it returns the same list regardless of the date.
+// Creates the initial list of available times using today's date
+export const initializeTimes = () => {
+  const today = new Date();
+  return fetchAPI(today).map(formatTime);
+};
+
+// Reducer: fetch the available times for the selected date
 export const updateTimes = (state, action) => {
   switch (action.type) {
     case "UPDATE_TIMES":
-      return initializeTimes();
+      return fetchAPI(new Date(action.date)).map(formatTime);
     default:
       return state;
   }
 };
 
 function Main() {
-  const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
+  const [availableTimes, dispatch] = useReducer(
+    updateTimes,
+    undefined,
+    initializeTimes
+  );
 
   return (
     <main>

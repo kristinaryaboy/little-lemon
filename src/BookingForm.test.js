@@ -17,9 +17,10 @@ test("initializeTimes returns a non-empty array of times", () => {
   expect(result).toContain("5:00 PM");
 });
 
-// Step 2b: updateTimes returns the same value provided in state
-test("updateTimes returns the provided state for the UPDATE_TIMES action", () => {
-  const state = initializeTimes();
+// Step 2b: updateTimes returns available times for the selected date
+test("updateTimes returns a non-empty list of times for the selected date", () => {
   const action = { type: "UPDATE_TIMES", date: "2024-01-01" };
-  expect(updateTimes(state, action)).toEqual(state);
+  const result = updateTimes([], action);
+  expect(Array.isArray(result)).toBe(true);
+  expect(result.length).toBeGreaterThan(0);
 });
