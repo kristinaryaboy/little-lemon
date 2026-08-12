@@ -8,6 +8,7 @@ function ConfirmedBooking() {
         Thank you. Your table reservation at Little Lemon has been confirmed.
         We look forward to seeing you!
       </p>
+      <p>A confirmation email has been sent to you with your reservation details.</p>
       <Link to="/" className="button">Back to Home</Link>
     </section>
   );

@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 
 const links = [
   { label: "Home", to: "/" },
-  { label: "About", to: "/" },
-  { label: "Menu", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Menu", to: "/menu" },
   { label: "Reservations", to: "/booking" },
-  { label: "Order Online", to: "/" },
-  { label: "Login", to: "/" },
+  { label: "Order Online", to: "/order" },
+  { label: "Login", to: "/login" },
 ];
 
 function Nav({ isOpen, onNavigate }) {

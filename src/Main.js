@@ -4,6 +4,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import Homepage from "./Homepage";
 import BookingPage from "./BookingPage";
 import ConfirmedBooking from "./ConfirmedBooking";
+import ComingSoon from "./ComingSoon";
 
 // Convert a 24-hour "HH:MM" time from the API into a friendly AM/PM string
 const formatTime = (time24) => {
@@ -60,6 +61,10 @@ function Main() {
           }
         />
         <Route path="/confirmed" element={<ConfirmedBooking />} />
+        <Route path="/about" element={<ComingSoon />} />
+        <Route path="/menu" element={<ComingSoon />} />
+        <Route path="/order" element={<ComingSoon />} />
+        <Route path="/login" element={<ComingSoon />} />
       </Routes>
     </main>
   );

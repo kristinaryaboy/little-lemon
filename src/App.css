@@ -374,6 +374,12 @@ img {
   cursor: not-allowed;
 }
 
+/* Outline required fields in red while they are empty or invalid */
+.booking-form input:invalid,
+.booking-form select:invalid {
+  border: 1px solid #d32f2f;
+}
+
 /* ===== Main ===== */
 main {
   min-height: 50vh;
